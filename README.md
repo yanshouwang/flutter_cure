@@ -1,6 +1,6 @@
 # flutter_cure
 
-A new flutter plugin project.
+Cure for flutter.
 
 ## Getting Started
 
