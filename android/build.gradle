@@ -1,4 +1,4 @@
-group 'dev.yanshouwang.flutter_cure'
+group 'dev.yanshouwang.cure'
 version '1.0-SNAPSHOT'
 
 buildscript {

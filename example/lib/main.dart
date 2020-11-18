@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
 
 import 'package:flutter/services.dart';
-import 'package:flutter_cure/flutter_cure.dart';
+import 'package:flutter_cure/security.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,22 +13,23 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
+  String _state = AuthorityState.undetermined.toString();
 
   @override
   void initState() {
     super.initState();
-    initPlatformState();
+    requestAuthority();
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    String platformVersion;
+  void requestAuthority() async {
+    String state;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
-      platformVersion = await FlutterCure.platformVersion;
+      final result = await Authority.calendar.requestAsync();
+      state = result.toString();
     } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
+      state = 'requestAuthority error';
     }
 
     // If the widget was removed from the tree while the asynchronous platform
@@ -38,7 +38,7 @@ class _MyAppState extends State<MyApp> {
     if (!mounted) return;
 
     setState(() {
-      _platformVersion = platformVersion;
+      _state = state;
     });
   }
 
@@ -50,7 +50,7 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+          child: Text('Authority state: $_state\n'),
         ),
       ),
     );

@@ -11,6 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  dart_cure: ^0.0.4
 
 dev_dependencies:
   flutter_test:
@@ -28,10 +29,10 @@ flutter:
   plugin:
     platforms:
       android:
-        package: dev.yanshouwang.flutter_cure
-        pluginClass: FlutterCurePlugin
+        package: dev.yanshouwang.cure
+        pluginClass: CurePlugin
       ios:
-        pluginClass: FlutterCurePlugin
+        pluginClass: CurePlugin
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
