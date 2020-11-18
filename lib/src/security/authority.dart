@@ -17,7 +17,7 @@ abstract class Authority {
   /// 通讯录
   static Authority get contacts => _Authority(2);
 
-  /// 位置（全部）
+  /// 位置（所有时间）
   static Authority get locationAlways => _Authority(3);
 
   /// 位置（使用时）
@@ -26,14 +26,17 @@ abstract class Authority {
   /// 麦克风
   static Authority get microphone => _Authority(5);
 
+  /// 手机
+  static Authority get phone => _Authority(6);
+
   /// 传感器
-  static Authority get sensors => _Authority(6);
+  static Authority get sensors => _Authority(7);
+
+  /// 短信
+  static Authority get sms => _Authority(8);
 
   /// 存储
-  static Authority get storage => _Authority(7);
-
-  /// 通知
-  static Authority get notification => _Authority(8);
+  static Authority get storage => _Authority(9);
 }
 
 class _Authority implements Authority {
